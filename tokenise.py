@@ -9,7 +9,5 @@ def token_by_sentences(message):
 
 
 def token_by_words(message):
-    message = message.lower()
-    message = co.clear_message(message)
     tokenized = word_tokenize(message)
     return tokenized

@@ -1,10 +1,17 @@
-import tokenise
+import lemmatise as lmm
+import clearing_out as co
+import tokenise as to
 
+#приведение к нижнему регистру
+#токенизация
+#удаление пунктуации
+#лемматизация
+#удаление стоп-слов
 
-message = "привет, ублюдки! Я срал вам в рты... Моя жопа болит"
-
-print(tokenise.token_by_sentences(message))
-sms = tokenise.token_by_words(message)
-print(sms)
-
-
+message = "Привет, ублюдки! Я срал вам в рты... Моя жопа болит"
+message = message.lower()
+message = co.clear_message(message)
+message = to.token_by_words(message)
+message = co.clear_from_stopwords(message)
+#message = lmm.lemmatise(message)
+print(message)
