@@ -1,11 +1,9 @@
-from nltk.tokenize import word_tokenize, sent_tokenize
-import nltk
+from nltk.tokenize import word_tokenize
+from rusenttokenize import ru_sent_tokenize
 
-nltk.download('stopwords')
-nltk.download('punkt')
 
 def token_by_sentences(message):
-    tokenized = sent_tokenize(message)
+    tokenized = ru_sent_tokenize(message)
     return tokenized
 
 
