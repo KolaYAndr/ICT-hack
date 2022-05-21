@@ -1,5 +1,5 @@
-from nltk.tokenize import word_tokenize
 from rusenttokenize import ru_sent_tokenize
+from nltk.tokenize import word_tokenize
 
 
 def token_by_sentences(message):
