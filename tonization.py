@@ -1,3 +1,5 @@
+# Программа для тонализации текста
+
 from dostoevsky.tokenization import RegexTokenizer
 from dostoevsky.models import FastTextSocialNetworkModel
 FastTextSocialNetworkModel.MODEL_PATH = "fasttext-social-network-model.bin"
