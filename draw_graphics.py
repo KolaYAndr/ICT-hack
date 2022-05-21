@@ -1,13 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 
 
-def draw_barplots(dictionary):
+def draw_hist(dictionary):
     df = pd.DataFrame(dictionary).T
     # выкинем столбец skip, он всё равно ничего полезного не делает
     df = df.drop(labels='skip', axis=1)
     df = df.count()
-    fig, axis = plt.subplots(1, 1, figsize=(16, 8))
-    sns.barplot(ax=axis, y=df.values, x=df.index, palette="Set1")
-    plt.show()
+    fig = px.histogram(df, x=df.index, y=df.values)
+    fig.update_layout(title="Plot Title", xaxis_title="Тон", yaxis_title="Значение")
+    fig.show()
