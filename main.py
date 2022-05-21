@@ -10,7 +10,7 @@ import tonization as ton
 # определяем тон
 
 
-message = input()
+message = "работал слишком много"
+# message = input()
 message = pp.preprocess(message)
 ton.define_ton(message)
-
