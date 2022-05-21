@@ -1,9 +1,6 @@
-#!python3 -m pip install vk_api
 import time
-
 import vk_api
 import requests
-
 import pandas as pd
 
 data_posts = []
@@ -27,7 +24,7 @@ def rq(off):
         for item in data:
             data_posts.append(item['text'])
         off += count
-        time.sleep(0.5)
+        time.sleep(0.2)
     return data_posts
 data_frame = pd.DataFrame({'texts': rq(0)})
 data_frame.to_csv('dataset.csv')
