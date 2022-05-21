@@ -1,5 +1,5 @@
 import prepocess as pp
-import tokenise
+import tonization as ton
 
 # работаем по такой схеме:
 # приведение к нижнему регистру
@@ -7,9 +7,10 @@ import tokenise
 # токенизация
 # удаление стоп-слов
 # лемматизация
+# определяем тон
 
 
 message = input()
 message = pp.preprocess(message)
-print(message)
+ton.define_ton(message)
 
