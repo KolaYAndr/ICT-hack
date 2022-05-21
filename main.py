@@ -1,17 +1,13 @@
-import lemmatise as lmm
-import clearing_out as co
-import tokenise as to
+import prepocess as pp
 
+#работаем по такой схеме:
 #приведение к нижнему регистру
-#токенизация
 #удаление пунктуации
-#лемматизация
+#токенизация
 #удаление стоп-слов
+#лемматизация
 
-message = "Привет, ублюдки! Я срал вам в рты... Моя жопа болит"
-message = message.lower()
-message = co.clear_message(message)
-message = to.token_by_words(message)
-message = co.clear_from_stopwords(message)
-#message = lmm.lemmatise(message)
+
+message = input()
+message = pp.preprocess(message)
 print(message)

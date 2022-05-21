@@ -11,8 +11,10 @@ def clear_from_stopwords(message):
             text += " "
     return text
 
+
 def clear_message(message):
+    string_punctuation = string.punctuation.replace('%', '')
     clean_text = message
-    for ch in string.punctuation:
+    for ch in string_punctuation:
         clean_text = clean_text.replace(ch, "")
     return clean_text
