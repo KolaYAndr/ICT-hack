@@ -1,10 +1,10 @@
 import clearing_out as co
-import tokenise as to
+import tokenise
 
 
 message = "привет, ублюдки! Я срал вам в рты... Моя жопа болит"
 # print(to.token_by_sentences(message) + "\n")
-sms = to.token_by_words(message)
+sms = tokenise.token_by_sentences(message)
 print(sms)
 
 

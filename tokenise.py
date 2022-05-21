@@ -6,10 +6,11 @@ nltk.download('punkt')
 russian_stopwords = nltk.corpus.stopwords.words("russian")
 
 
-# def token_by_sentences(message):
-#     tokenised = sent_tokenise(message)
-#     return tokenised
+def token_by_sentences(message):
+    tokenized = sent_tokenize(message)
+    return tokenized
+
 
 def token_by_words(message):
-    tokenised = word_tokenize(message)
-    return tokenised
+    tokenized = word_tokenize(message)
+    return tokenized
