@@ -1,5 +1,4 @@
 from nltk.tokenize import word_tokenize
-import clearing_out as co
 from rusenttokenize import ru_sent_tokenize
 
 
