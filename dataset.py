@@ -3,6 +3,7 @@ import vk_api
 import requests
 import pandas as pd
 
+
 data_posts = []
 def rq(off):
     vk_config = {"token": "44505e210e8af58b8499a216eecd66a3ba06122a46f65f6cbb57bc83bceedb14afe0a7d0ed268c170fef4",
