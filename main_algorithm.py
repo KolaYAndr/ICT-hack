@@ -3,6 +3,8 @@ import re
 import nltk
 from sklearn.datasets import load_files
 nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 import pickle
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -11,10 +13,25 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+import pandas as pd
+
+df1 = pd.read_csv('dataset_final .csv', usecols=['data'])
+df2 = pd.read_csv('dataset_final .csv', usecols=['target'])
+
+df = df1.values[1:350]
+DF = df2.values[1:350]
+
+
+strings = []
+list_of_y = []
+for i in range(1, len(df)):
+    strings.append(df[i][0])
+    list_of_y.append(DF[i][0])
+
 
 # загрузка доков/сообщений
-posts_data = load_files(r"") # Здесь должен быть путь, но вообще у нас же датафреймы, здесь нужно переделать
-X, y = posts_data.data, posts_data.target # Х - сами строки, у - массив из 0 или 1, соответствующие классам
+
+X, y = strings, list_of_y # Х - сами строки, у - массив из 0 или 1, соответствующие классам
 
 # Обработка
 documents = []
@@ -58,7 +75,7 @@ X = tfidfconverter.fit_transform(X).toarray()
 
 # Создание наборов для обучения и тестирования
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-
+print(X_test)
 # Создание обучающей модели
 # Классификатор случайного леса
 classifier = RandomForestClassifier(n_estimators=1000, random_state=0)
@@ -73,15 +90,15 @@ print(accuracy_score(y_test, y_pred))
 
 # Сохранение и загрузка модели
 with open('text_classifier', 'wb') as picklefile:
-    pickle.dump(classifier, picklefile)
+   pickle.dump(classifier, picklefile)
 
 # Загрузка модели в другом файле
-# with open('text_classifier', 'rb') as training_model:
-#     model = pickle.load(training_model)
-# y_pred2 = model.predict(X_test)
-#
-# print(confusion_matrix(y_test, y_pred2))
-# print(classification_report(y_test, y_pred2))
-# print(accuracy_score(y_test, y_pred2))
+with open('text_classifier', 'rb') as training_model:
+    model = pickle.load(training_model)
+y_pred2 = model.predict(X_test)
+print(y_pred2)
+print(confusion_matrix(y_test, y_pred2))
+print(classification_report(y_test, y_pred2))
+print(accuracy_score(y_test, y_pred2))
 #
 #
